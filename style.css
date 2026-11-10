@@ -57,11 +57,40 @@ main {
   background: var(--white);
 }
 
+main > section + section {
+  margin-top: 1.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid #dbe4f0;
+}
+
+main section > h2 {
+  color: var(--navy);
+}
+
 footer {
   padding: 1rem;
   color: var(--white);
   background: var(--navy);
   text-align: center;
+}
+
+/* Education table */
+main table {
+  width: 100%;
+  margin: 1rem 0;
+  border-collapse: collapse;
+}
+
+main th,
+main td {
+  padding: 0.75rem 1rem;
+  border: 1px solid #dbe4f0;
+  text-align: left;
+}
+
+main th {
+  color: var(--navy);
+  background: var(--pale-blue);
 }
 
 /* Project cards */
@@ -286,6 +315,12 @@ section[aria-label="Task summary"] p {
     width: 92%;
     margin: 1rem auto;
     padding: 1rem;
+  }
+
+  main table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
   }
 
   .projects-grid {
