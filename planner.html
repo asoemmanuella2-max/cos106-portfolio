@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Academic Planner | Aso Emmanuella</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header>
+    <h1>Academic Planner</h1>
+    <nav aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="projects.html">Projects</a>
+      <a href="planner.html" aria-current="page">Planner</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section aria-labelledby="planner-heading">
+      <h2 id="planner-heading">Organize Your Academic Tasks</h2>
+      <p>Add a task, mark it complete when it’s done, or remove it from your list.</p>
+
+      <form id="task-form">
+        <label for="task-input">New task</label>
+        <input
+          id="task-input"
+          name="task"
+          type="text"
+          placeholder="For example: Review lecture notes"
+          required
+          maxlength="120"
+        >
+        <button type="submit">Add Task</button>
+      </form>
+
+      <p id="planner-message" aria-live="polite"></p>
+
+      <section aria-label="Task summary">
+        <p>Total tasks: <span id="total-count">0</span></p>
+        <p>Completed: <span id="completed-count">0</span></p>
+        <p>Pending: <span id="pending-count">0</span></p>
+      </section>
+
+      <h3>My Tasks</h3>
+      <ul id="task-list" aria-live="polite"></ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 MIVA Open University. All rights reserved.</p>
+  </footer>
+</body>
+</html>
