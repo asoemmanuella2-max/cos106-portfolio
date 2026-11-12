@@ -1,28 +1,10 @@
-/* ==========================================================================
-   Aso Emmanuella — Student Portfolio  |  script.js
-   One shared script for every page. Each feature only starts when the
-   elements it needs exist on the current page.
-
-   Contents
-     1. Helpers (selectors, safe storage, toast)
-     2. Flat SVG icon set
-     3. Theme toggle
-     4. Navigation, scroll progress, back-to-top
-     5. Reveal-on-scroll, counters, typed text, card spotlight
-     6. Audio player (home)
-     7. Project filters + details dialog (projects)
-     8. Academic planner (planner)
-     9. Contact form validation (contact)
-   ========================================================================== */
 (() => {
   "use strict";
 
-  /* ---------- 1. Helpers ---------- */
   const $ = (selector, scope = document) => scope.querySelector(selector);
   const $$ = (selector, scope = document) => [...scope.querySelectorAll(selector)];
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  // localStorage can throw (private mode, blocked cookies) so always wrap it.
   const store = {
     get(key, fallback = null) {
       try {
@@ -60,7 +42,6 @@
     }, 2600);
   }
 
-  /* ---------- 2. Flat SVG icon set (Lucide-style, inline so it works offline) ---------- */
   const ICONS = {
     home: '<path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>',
     user: '<path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>',
@@ -124,7 +105,6 @@
     });
   }
 
-  /* ---------- 3. Theme toggle (dark / light) ---------- */
   function initTheme() {
     const root = document.documentElement;
     const button = $(".theme-toggle");
@@ -144,7 +124,6 @@
     });
   }
 
-  /* ---------- 4. Navigation, scroll progress, back-to-top ---------- */
   function initNavigation() {
     const header = $(".site-header");
     const links = $(".nav-links");
@@ -189,7 +168,6 @@
     toTop?.addEventListener("click", () => window.scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" }));
   }
 
-  /* ---------- 5. Reveal on scroll, counters, typed text, card spotlight ---------- */
   function initReveal() {
     const items = $$(".reveal");
     if (!items.length) return;
@@ -279,7 +257,6 @@
     });
   }
 
-  /* ---------- 6. Audio player (home page) ---------- */
   function initAudio() {
     const card = $("[data-audio-player]");
     const audio = $("#intro-audio");
@@ -292,12 +269,10 @@
     const wave = $(".wave", card);
     const status = $(".audio-status", card);
 
-    // Swap the plain browser player for the styled one.
     card.hidden = false;
     audio.removeAttribute("controls");
     audio.hidden = true;
 
-    // Build the decorative waveform from a repeatable pattern (an array + a function).
     const BARS = 56;
     const heights = Array.from({ length: BARS }, (_, i) =>
       Math.round(28 + 62 * Math.abs(Math.sin(i * 0.55) * Math.cos(i * 0.21 + 1))));
@@ -361,7 +336,6 @@
     if (audio.readyState >= 1) total.textContent = format(audio.duration);
   }
 
-  /* ---------- 7. Projects: filters + details dialog ---------- */
   function initProjects() {
     const grid = $(".projects-grid");
     if (!grid) return;
@@ -432,7 +406,6 @@
     });
   }
 
-  /* ---------- 8. Academic planner ---------- */
   function initPlanner() {
     const form = $("#task-form");
     if (!form) return;
@@ -668,7 +641,6 @@
     render();
   }
 
-  /* ---------- 9. Contact form validation ---------- */
   function initContact() {
     const form = $("#contact-form");
     if (!form) return;
@@ -679,7 +651,6 @@
     const counter = $("#message-count");
     const successName = $("#success-name");
 
-    // One small function per field; each returns an error string or "" when valid.
     const rules = {
       "contact-name": (v) => (v ? "" : "Please enter your name."),
       "contact-email": (v) => {
@@ -726,7 +697,6 @@
         return;
       }
 
-      // Simulated send (no backend on GitHub Pages): show a short loading state, then success.
       submitBtn.disabled = true;
       submitBtn.firstChild.textContent = "Sending… ";
       setTimeout(() => {
@@ -750,7 +720,6 @@
     });
   }
 
-  /* ---------- Start everything ---------- */
   document.addEventListener("DOMContentLoaded", () => {
     renderIcons();
     initTheme();
