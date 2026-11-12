@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | Aso Emmanuella</title>
+  <meta name="description" content="Send a message to Aso Emmanuella using the contact form.">
+  <meta name="theme-color" content="#0a0c1b">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap">
+  <link rel="stylesheet" href="style.css">
+  <script>
+    /* Runs before first paint so the saved theme never flashes. */
+    document.documentElement.classList.add("js");
+    try {
+      var saved = localStorage.getItem("theme");
+      var theme = saved ? JSON.parse(saved) : (matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark");
+      document.documentElement.dataset.theme = theme;
+    } catch (e) { document.documentElement.dataset.theme = "dark"; }
+  </script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <div class="scroll-progress" aria-hidden="true"></div>
+  <div class="bg-grid" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <div class="container nav-inner">
+      <a class="brand" href="index.html" aria-label="Aso Emmanuella, home">
+        <span class="brand-mark" aria-hidden="true">AE</span>
+        <span>Aso Emmanuella</span>
+      </a>
+
+      <nav class="nav-links" id="site-nav" aria-label="Main navigation">
+        <a href="index.html"><i data-icon="home"></i>Home</a>
+        <a href="about.html"><i data-icon="user"></i>About</a>
+        <a href="projects.html"><i data-icon="briefcase"></i>Projects</a>
+        <a href="planner.html"><i data-icon="tasks"></i>Planner</a>
+        <a href="contact.html" aria-current="page"><i data-icon="mail"></i>Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="icon-btn theme-toggle" type="button" aria-label="Switch theme">
+          <i data-icon="sun" class="icon-sun"></i><i data-icon="moon" class="icon-moon"></i>
+        </button>
+        <button class="icon-btn menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+          <span class="bars" aria-hidden="true"><span></span><span></span><span></span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-hero">
+      <div class="container">
+        <p class="eyebrow reveal"><i data-icon="mail"></i>Contact</p>
+        <h1 class="reveal" style="--i:1">Let&rsquo;s <span class="grad-text">talk</span></h1>
+        <p class="reveal" style="--i:2">Fill in each field below and send me a message.</p>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top:2rem" aria-labelledby="contact-heading">
+      <div class="container contact-layout">
+        <div class="contact-info">
+          <a class="card info-card reveal" href="https://github.com/asoemmanuella2-max" target="_blank" rel="noopener noreferrer">
+            <span class="tile t-violet"><i data-icon="github"></i></span>
+            <div><h3>GitHub</h3><p>See my code and repositories</p></div>
+            <i data-icon="external" class="icon-arrow"></i>
+          </a>
+          <div class="card info-card reveal" style="--i:1">
+            <span class="tile t-cyan"><i data-icon="cap"></i></span>
+            <div><h3>Studying at</h3><p>MIVA Open University</p></div>
+          </div>
+          <a class="card info-card reveal" style="--i:2" href="projects.html">
+            <span class="tile t-pink"><i data-icon="briefcase"></i></span>
+            <div><h3>My projects</h3><p>Browse what I&rsquo;ve built</p></div>
+            <i data-icon="arrow-right" class="icon-arrow"></i>
+          </a>
+        </div>
+
+        <div class="card form-card reveal" style="--i:1">
+          <h2 id="contact-heading" style="font-size:1.6rem">Send a message</h2>
+          <form id="contact-form" novalidate>
+            <div class="form-row">
+              <div class="field">
+                <label for="contact-name">Name</label>
+                <div class="input-icon">
+                  <i data-icon="user"></i>
+                  <input id="contact-name" name="name" type="text" placeholder="Your full name" autocomplete="name" required aria-describedby="contact-name-error">
+                </div>
+                <p class="field-error" id="contact-name-error" role="alert"><i data-icon="alert"></i><span></span></p>
+              </div>
+              <div class="field">
+                <label for="contact-email">Email address</label>
+                <div class="input-icon">
+                  <i data-icon="mail"></i>
+                  <input id="contact-email" name="email" type="email" placeholder="name@example.com" autocomplete="email" required aria-describedby="contact-email-error">
+                </div>
+                <p class="field-error" id="contact-email-error" role="alert"><i data-icon="alert"></i><span></span></p>
+              </div>
+            </div>
+              <div class="field">
+                <label for="contact-phone">Phone number</label>
+                <div class="input-icon">
+                  <i data-icon="phone"></i>
+                  <input id="contact-phone" name="phone" type="tel" placeholder="Digits only, e.g. 08012345678" autocomplete="tel" inputmode="numeric" required aria-describedby="contact-phone-error">
+                </div>
+                <p class="field-error" id="contact-phone-error" role="alert"><i data-icon="alert"></i><span></span></p>
+              </div>
+            <div class="field">
+              <label for="contact-message-text">Message</label>
+              <textarea id="contact-message-text" name="message" rows="6" maxlength="500" placeholder="How can I help you?" required aria-describedby="contact-message-text-error"></textarea>
+              <div class="field-hint"><p class="field-error" id="contact-message-text-error" role="alert"><i data-icon="alert"></i><span></span></p><span id="message-count">0 / 500</span></div>
+            </div>
+            <button class="btn btn-primary" type="submit">Send message <i data-icon="send"></i></button>
+          </form>
+
+          <div class="success" aria-live="polite">
+            <div class="check-big"><i data-icon="check"></i></div>
+            <h2 tabindex="-1" style="margin:0.6rem 0 0">Thank you!</h2>
+            <p>Thank you, <strong id="success-name"></strong>. Your form was submitted successfully.</p>
+            <button class="btn btn-ghost" id="send-another" type="button">Send another message</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <a class="brand" href="index.html" aria-label="Aso Emmanuella, home">
+          <span class="brand-mark" aria-hidden="true">AE</span>
+          <span>Aso Emmanuella</span>
+        </a>
+        <p style="margin-top:1rem;max-width:340px">Computer Science student at MIVA Open University, interested in software and game development.</p>
+      </div>
+      <nav aria-label="Footer navigation">
+        <h2>Explore</h2>
+        <div class="footer-links">
+          <a href="index.html"><i data-icon="home"></i>Home</a>
+          <a href="about.html"><i data-icon="user"></i>About</a>
+          <a href="projects.html"><i data-icon="briefcase"></i>Projects</a>
+          <a href="planner.html"><i data-icon="tasks"></i>Planner</a>
+        </div>
+      </nav>
+      <div>
+        <h2>Connect</h2>
+        <div class="footer-links">
+          <a href="contact.html"><i data-icon="mail"></i>Contact form</a>
+          <a href="https://github.com/asoemmanuella2-max" target="_blank" rel="noopener noreferrer"><i data-icon="github"></i>GitHub</a>
+        </div>
+      </div>
+    </div>
+    <div class="container copyright">
+      <p>&copy; 2025 MIVA Open University. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <button class="icon-btn to-top" type="button" aria-label="Back to top"><i data-icon="arrow-up"></i></button>
+</body>
+</html>

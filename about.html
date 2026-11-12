@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Me | Aso Emmanuella</title>
+  <meta name="description" content="Education, career aspirations, technical skills and interests of Aso Emmanuella, a Computer Science student at MIVA Open University.">
+  <meta name="theme-color" content="#0a0c1b">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap">
+  <link rel="stylesheet" href="style.css">
+  <script>
+    /* Runs before first paint so the saved theme never flashes. */
+    document.documentElement.classList.add("js");
+    try {
+      var saved = localStorage.getItem("theme");
+      var theme = saved ? JSON.parse(saved) : (matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark");
+      document.documentElement.dataset.theme = theme;
+    } catch (e) { document.documentElement.dataset.theme = "dark"; }
+  </script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <div class="scroll-progress" aria-hidden="true"></div>
+  <div class="bg-grid" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <div class="container nav-inner">
+      <a class="brand" href="index.html" aria-label="Aso Emmanuella, home">
+        <span class="brand-mark" aria-hidden="true">AE</span>
+        <span>Aso Emmanuella</span>
+      </a>
+
+      <nav class="nav-links" id="site-nav" aria-label="Main navigation">
+        <a href="index.html"><i data-icon="home"></i>Home</a>
+        <a href="about.html" aria-current="page"><i data-icon="user"></i>About</a>
+        <a href="projects.html"><i data-icon="briefcase"></i>Projects</a>
+        <a href="planner.html"><i data-icon="tasks"></i>Planner</a>
+        <a href="contact.html"><i data-icon="mail"></i>Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="icon-btn theme-toggle" type="button" aria-label="Switch theme">
+          <i data-icon="sun" class="icon-sun"></i><i data-icon="moon" class="icon-moon"></i>
+        </button>
+        <button class="icon-btn menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+          <span class="bars" aria-hidden="true"><span></span><span></span><span></span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-hero">
+      <div class="container">
+        <p class="eyebrow reveal"><i data-icon="user"></i>About me</p>
+        <h1 class="reveal" style="--i:1">Get to <span class="grad-text">know me</span></h1>
+        <p class="reveal" style="--i:2">My education, where I&rsquo;m heading, what I&rsquo;m learning and what I enjoy.</p>
+      </div>
+    </section>
+
+    <!-- Education (table) -->
+    <section class="section" aria-labelledby="edu-title">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="tile t-violet" style="margin-bottom:1rem"><i data-icon="cap"></i></span>
+          <h2 id="edu-title">Educational background</h2>
+        </div>
+        <div class="table-wrap reveal">
+          <table>
+            <caption>My current programme of study</caption>
+            <thead>
+              <tr><th scope="col">Institution</th><th scope="col">Programme</th><th scope="col">Status</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">MIVA Open University</th>
+                <td>Computer Science</td>
+                <td><span class="badge"><span class="dot"></span>Currently studying</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Career aspirations -->
+    <section class="section" style="padding-top:0" aria-labelledby="career-title">
+      <div class="container split">
+        <div class="reveal reveal-left">
+          <span class="tile t-pink" style="margin-bottom:1rem"><i data-icon="target"></i></span>
+          <h2 id="career-title">Career aspirations</h2>
+          <div class="quote-card"><p>&ldquo;I aspire to become a software and game developer.&rdquo;</p></div>
+        </div>
+        <ul class="check-list reveal reveal-right" aria-label="Career goals">
+          <li><i data-icon="check-circle"></i><span><strong>Software developer.</strong> Build useful applications that solve real problems.</span></li>
+          <li><i data-icon="check-circle"></i><span><strong>Game developer.</strong> Combine logic, design and creativity to make games.</span></li>
+          <li><i data-icon="check-circle"></i><span><strong>Keep growing.</strong> Learn something new with every project I build.</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Technical skills -->
+    <section class="section" style="padding-top:0" aria-labelledby="skills-title">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="tile t-cyan" style="margin-bottom:1rem"><i data-icon="code"></i></span>
+          <h2 id="skills-title">Technical skills</h2>
+          <p>The core web technologies I&rsquo;m learning and using in my projects.</p>
+        </div>
+        <ul class="grid-3">
+          <li class="card skill-card reveal" style="--i:0">
+            <div class="skill-top"><span class="tile t-pink"><i data-icon="globe"></i></span><span class="pill">Currently learning</span></div>
+            <h3>HTML</h3>
+            <ul>
+              <li><i data-icon="check"></i>Page structure and semantic elements</li>
+              <li><i data-icon="check"></i>Forms, tables, lists and media</li>
+            </ul>
+          </li>
+          <li class="card skill-card reveal" style="--i:1">
+            <div class="skill-top"><span class="tile t-violet"><i data-icon="palette"></i></span><span class="pill">Currently learning</span></div>
+            <h3>CSS</h3>
+            <ul>
+              <li><i data-icon="check"></i>Flexbox and Grid layouts</li>
+              <li><i data-icon="check"></i>Responsive design and animation</li>
+            </ul>
+          </li>
+          <li class="card skill-card reveal" style="--i:2">
+            <div class="skill-top"><span class="tile t-amber"><i data-icon="zap"></i></span><span class="pill">Currently learning</span></div>
+            <h3>JavaScript</h3>
+            <ul>
+              <li><i data-icon="check"></i>Events and DOM manipulation</li>
+              <li><i data-icon="check"></i>Form validation and task logic</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Hobbies -->
+    <section class="section" style="padding-top:0" aria-labelledby="hobby-title">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="tile t-green" style="margin-bottom:1rem"><i data-icon="spark"></i></span>
+          <h2 id="hobby-title">Hobbies and interests</h2>
+          <p>My interests include software development and game development.</p>
+        </div>
+        <div class="grid-2">
+          <article class="card reveal" style="--i:0">
+            <span class="tile t-violet"><i data-icon="code"></i></span>
+            <h3>Software development</h3>
+            <p>Exploring how applications are designed, built and improved.</p>
+          </article>
+          <article class="card reveal" style="--i:1">
+            <span class="tile t-pink"><i data-icon="gamepad"></i></span>
+            <h3>Game development</h3>
+            <p>Curious about what goes into making a game: logic, design and play.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top:0">
+      <div class="container">
+        <div class="cta-band reveal reveal-scale">
+          <h2>Want to see what I&rsquo;ve built?</h2>
+          <p>Browse my projects and try the interactive academic planner.</p>
+          <div class="hero-cta">
+            <a class="btn btn-primary" href="projects.html">See my projects <i data-icon="arrow-right" class="icon-arrow"></i></a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <a class="brand" href="index.html" aria-label="Aso Emmanuella, home">
+          <span class="brand-mark" aria-hidden="true">AE</span>
+          <span>Aso Emmanuella</span>
+        </a>
+        <p style="margin-top:1rem;max-width:340px">Computer Science student at MIVA Open University, interested in software and game development.</p>
+      </div>
+      <nav aria-label="Footer navigation">
+        <h2>Explore</h2>
+        <div class="footer-links">
+          <a href="index.html"><i data-icon="home"></i>Home</a>
+          <a href="about.html"><i data-icon="user"></i>About</a>
+          <a href="projects.html"><i data-icon="briefcase"></i>Projects</a>
+          <a href="planner.html"><i data-icon="tasks"></i>Planner</a>
+        </div>
+      </nav>
+      <div>
+        <h2>Connect</h2>
+        <div class="footer-links">
+          <a href="contact.html"><i data-icon="mail"></i>Contact form</a>
+          <a href="https://github.com/asoemmanuella2-max" target="_blank" rel="noopener noreferrer"><i data-icon="github"></i>GitHub</a>
+        </div>
+      </div>
+    </div>
+    <div class="container copyright">
+      <p>&copy; 2025 MIVA Open University. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <button class="icon-btn to-top" type="button" aria-label="Back to top"><i data-icon="arrow-up"></i></button>
+</body>
+</html>

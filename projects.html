@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects | Aso Emmanuella</title>
+  <meta name="description" content="Three projects by Aso Emmanuella: an academic task manager, a student registration system and a smart technology storefront.">
+  <meta name="theme-color" content="#0a0c1b">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap">
+  <link rel="stylesheet" href="style.css">
+  <script>
+    /* Runs before first paint so the saved theme never flashes. */
+    document.documentElement.classList.add("js");
+    try {
+      var saved = localStorage.getItem("theme");
+      var theme = saved ? JSON.parse(saved) : (matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark");
+      document.documentElement.dataset.theme = theme;
+    } catch (e) { document.documentElement.dataset.theme = "dark"; }
+  </script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <div class="scroll-progress" aria-hidden="true"></div>
+  <div class="bg-grid" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <div class="container nav-inner">
+      <a class="brand" href="index.html" aria-label="Aso Emmanuella, home">
+        <span class="brand-mark" aria-hidden="true">AE</span>
+        <span>Aso Emmanuella</span>
+      </a>
+
+      <nav class="nav-links" id="site-nav" aria-label="Main navigation">
+        <a href="index.html"><i data-icon="home"></i>Home</a>
+        <a href="about.html"><i data-icon="user"></i>About</a>
+        <a href="projects.html" aria-current="page"><i data-icon="briefcase"></i>Projects</a>
+        <a href="planner.html"><i data-icon="tasks"></i>Planner</a>
+        <a href="contact.html"><i data-icon="mail"></i>Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="icon-btn theme-toggle" type="button" aria-label="Switch theme">
+          <i data-icon="sun" class="icon-sun"></i><i data-icon="moon" class="icon-moon"></i>
+        </button>
+        <button class="icon-btn menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+          <span class="bars" aria-hidden="true"><span></span><span></span><span></span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-hero">
+      <div class="container">
+        <p class="eyebrow reveal"><i data-icon="briefcase"></i>Projects</p>
+        <h1 class="reveal" style="--i:1">Things I&rsquo;ve <span class="grad-text">built</span></h1>
+        <p class="reveal" style="--i:2">Here are three projects I&rsquo;ve created and worked on.</p>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top:2rem" aria-labelledby="projects-heading">
+      <div class="container">
+        <h2 id="projects-heading" class="sr-only">Project list</h2>
+        <div class="filters reveal" role="group" aria-label="Filter projects">
+          <button class="chip" type="button" data-filter="all" aria-pressed="true">All</button>
+          <button class="chip" type="button" data-filter="webapp" aria-pressed="false">Web apps</button>
+          <button class="chip" type="button" data-filter="forms" aria-pressed="false">Forms</button>
+          <button class="chip" type="button" data-filter="ui" aria-pressed="false">UI design</button>
+        </div>
+        <p id="project-count" class="sr-only" role="status" aria-live="polite">Showing 3 of 3 projects</p>
+
+        <div class="projects-grid">
+        <article class="card project-card reveal" data-category="webapp" data-details="A planner for students: type in an academic task, add it to the list, and watch the total, completed and pending counters update. Built with HTML, CSS and JavaScript.">
+          <div class="browser">
+            <div class="browser-bar" aria-hidden="true"><span></span><span></span><span></span></div>
+            <div class="browser-shot">
+              <img src="assets/images/project-task-manager.jpg" alt="Preview of the Academic Task Manager showing a task entry field and task counts" width="1341" height="642" loading="lazy">
+            </div>
+          </div>
+          <div class="project-body">
+            <ul class="tags" aria-label="Technologies used"><li class="tag">HTML</li><li class="tag">CSS</li><li class="tag">JavaScript</li></ul>
+            <h3>Academic Task Manager</h3>
+            <p>I built this planner to help students organize academic tasks. It provides a place to enter tasks and shows total, completed, and pending counts at a glance.</p>
+            <div class="project-actions">
+              <a class="btn btn-primary btn-sm" href="https://asoemmanuella2-max.github.io/academic-task-manager/" target="_blank" rel="noopener noreferrer" data-live>View live project <i data-icon="external"></i></a>
+              <button class="btn btn-ghost btn-sm" type="button" data-open-project>Details <i data-icon="arrow-right" class="icon-arrow"></i></button>
+            </div>
+          </div>
+        </article>
+        <article class="card project-card reveal" data-category="webapp forms" data-details="A registration portal with a clear form where students enter their full name, email address and phone number, with a simple Home / Register / About Us navigation.">
+          <div class="browser">
+            <div class="browser-bar" aria-hidden="true"><span></span><span></span><span></span></div>
+            <div class="browser-shot">
+              <img src="assets/images/project-registration.jpg" alt="Preview of the Student Registration System and its student registration form" width="1341" height="642" loading="lazy">
+            </div>
+          </div>
+          <div class="project-body">
+            <ul class="tags" aria-label="Technologies used"><li class="tag">HTML</li><li class="tag">CSS</li><li class="tag">Forms</li></ul>
+            <h3>Student Registration System</h3>
+            <p>I created this portal to give students a clear way to submit their registration details. The form includes fields such as full name, email address, and phone number.</p>
+            <div class="project-actions">
+              <a class="btn btn-primary btn-sm" href="https://asoemmanuella2-max.github.io/student-registration-system/" target="_blank" rel="noopener noreferrer" data-live>View live project <i data-icon="external"></i></a>
+              <button class="btn btn-ghost btn-sm" type="button" data-open-project>Details <i data-icon="arrow-right" class="icon-arrow"></i></button>
+            </div>
+          </div>
+        </article>
+        <article class="card project-card reveal" data-category="ui" data-details="The preview shows categories for smartphones, laptops, smartwatches, and audio products, along with a featured products section.">
+          <div class="browser">
+            <div class="browser-bar" aria-hidden="true"><span></span><span></span><span></span></div>
+            <div class="browser-shot">
+              <img src="assets/images/project-ella-tech.jpg" alt="Preview of the ELLA TECH smart technology storefront" width="1341" height="642" loading="lazy">
+            </div>
+          </div>
+          <div class="project-body">
+            <ul class="tags" aria-label="Technologies used"><li class="tag">HTML</li><li class="tag">CSS</li><li class="tag">UI design</li></ul>
+            <h3>ELLA TECH | Smart Technology</h3>
+            <p>I designed this storefront to present smart technology products in a clear, modern layout, with category shortcuts and featured products.</p>
+            <div class="project-actions">
+              
+              <button class="btn btn-primary btn-sm" type="button" data-open-project>Details <i data-icon="arrow-right" class="icon-arrow"></i></button>
+            </div>
+          </div>
+        </article>
+        </div>
+      </div>
+    </section>
+
+    <dialog id="project-dialog" aria-labelledby="dialog-title">
+      <button class="icon-btn dialog-close" type="button" data-close-dialog aria-label="Close project details"><i data-icon="x"></i></button>
+      <div class="dialog-shot"><img id="dialog-img" alt=""></div>
+      <div class="dialog-body">
+        <ul class="tags" id="dialog-tags"></ul>
+        <h2 id="dialog-title" style="font-size:1.6rem;margin-top:0.8rem"></h2>
+        <p id="dialog-text" style="color:var(--muted)"></p>
+        <p id="dialog-note" class="dialog-note" hidden><i data-icon="info"></i><span>This project is shown as a design preview and doesn&rsquo;t have a public link yet.</span></p>
+        <div class="project-actions" id="dialog-actions" style="margin-top:1rem"></div>
+      </div>
+    </dialog>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <a class="brand" href="index.html" aria-label="Aso Emmanuella, home">
+          <span class="brand-mark" aria-hidden="true">AE</span>
+          <span>Aso Emmanuella</span>
+        </a>
+        <p style="margin-top:1rem;max-width:340px">Computer Science student at MIVA Open University, interested in software and game development.</p>
+      </div>
+      <nav aria-label="Footer navigation">
+        <h2>Explore</h2>
+        <div class="footer-links">
+          <a href="index.html"><i data-icon="home"></i>Home</a>
+          <a href="about.html"><i data-icon="user"></i>About</a>
+          <a href="projects.html"><i data-icon="briefcase"></i>Projects</a>
+          <a href="planner.html"><i data-icon="tasks"></i>Planner</a>
+        </div>
+      </nav>
+      <div>
+        <h2>Connect</h2>
+        <div class="footer-links">
+          <a href="contact.html"><i data-icon="mail"></i>Contact form</a>
+          <a href="https://github.com/asoemmanuella2-max" target="_blank" rel="noopener noreferrer"><i data-icon="github"></i>GitHub</a>
+        </div>
+      </div>
+    </div>
+    <div class="container copyright">
+      <p>&copy; 2025 MIVA Open University. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <button class="icon-btn to-top" type="button" aria-label="Back to top"><i data-icon="arrow-up"></i></button>
+</body>
+</html>

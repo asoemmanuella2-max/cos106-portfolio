@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Academic Planner | Aso Emmanuella</title>
+  <meta name="description" content="An interactive academic planner: add tasks, mark them complete and delete them. Built with JavaScript.">
+  <meta name="theme-color" content="#0a0c1b">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap">
+  <link rel="stylesheet" href="style.css">
+  <script>
+    /* Runs before first paint so the saved theme never flashes. */
+    document.documentElement.classList.add("js");
+    try {
+      var saved = localStorage.getItem("theme");
+      var theme = saved ? JSON.parse(saved) : (matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark");
+      document.documentElement.dataset.theme = theme;
+    } catch (e) { document.documentElement.dataset.theme = "dark"; }
+  </script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <div class="scroll-progress" aria-hidden="true"></div>
+  <div class="bg-grid" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <div class="container nav-inner">
+      <a class="brand" href="index.html" aria-label="Aso Emmanuella, home">
+        <span class="brand-mark" aria-hidden="true">AE</span>
+        <span>Aso Emmanuella</span>
+      </a>
+
+      <nav class="nav-links" id="site-nav" aria-label="Main navigation">
+        <a href="index.html"><i data-icon="home"></i>Home</a>
+        <a href="about.html"><i data-icon="user"></i>About</a>
+        <a href="projects.html"><i data-icon="briefcase"></i>Projects</a>
+        <a href="planner.html" aria-current="page"><i data-icon="tasks"></i>Planner</a>
+        <a href="contact.html"><i data-icon="mail"></i>Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="icon-btn theme-toggle" type="button" aria-label="Switch theme">
+          <i data-icon="sun" class="icon-sun"></i><i data-icon="moon" class="icon-moon"></i>
+        </button>
+        <button class="icon-btn menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+          <span class="bars" aria-hidden="true"><span></span><span></span><span></span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-hero">
+      <div class="container">
+        <p class="eyebrow reveal"><i data-icon="tasks"></i>Academic planner</p>
+        <h1 class="reveal" style="--i:1">Organize your <span class="grad-text">academic tasks</span></h1>
+        <p class="reveal" style="--i:2">Add a task, mark it complete when it&rsquo;s done, or remove it from your list. Your tasks are saved in this browser.</p>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top:2rem" aria-labelledby="planner-heading">
+      <div class="container planner-layout">
+        <h2 id="planner-heading" class="sr-only">Planner</h2>
+
+        <div class="planner-side">
+          <div class="card reveal">
+            <h3 style="margin-top:0">Add a task</h3>
+            <form id="task-form" novalidate>
+              <div class="field" id="task-field">
+                <label for="task-input">New task</label>
+                <div class="input-icon">
+                  <i data-icon="plus"></i>
+                  <input id="task-input" name="task" type="text" placeholder="e.g. Review lecture notes" maxlength="120" autocomplete="off" aria-describedby="task-error">
+                </div>
+                <p class="field-error" id="task-error"><i data-icon="alert"></i><span></span></p>
+              </div>
+              <div class="field">
+                <label for="task-priority">Priority</label>
+                <select id="task-priority" name="priority">
+                  <option value="low">Low</option>
+                  <option value="medium" selected>Medium</option>
+                  <option value="high">High</option>
+                </select>
+              </div>
+              <button class="btn btn-primary" type="submit" style="width:100%">Add task <i data-icon="plus"></i></button>
+              <p id="planner-message" class="form-status" aria-live="polite"></p>
+            </form>
+          </div>
+
+          <div class="card reveal" style="--i:1" aria-labelledby="progress-title">
+            <h3 id="progress-title" style="margin-top:0">Your progress</h3>
+            <div class="ring-wrap">
+              <div class="ring">
+                <svg viewBox="0 0 120 120" aria-hidden="true">
+                  <defs>
+                    <linearGradient id="ringGrad" x1="0" y1="0" x2="1" y2="1">
+                      <stop offset="0" stop-color="#7c5cff"/><stop offset="1" stop-color="#22d3ee"/>
+                    </linearGradient>
+                  </defs>
+                  <circle class="track" cx="60" cy="60" r="50"/>
+                  <circle class="bar" cx="60" cy="60" r="50"/>
+                </svg>
+                <span class="ring-label" id="ring-label">0%</span>
+              </div>
+              <div class="counts">
+                <div class="count-row"><span><i style="background:var(--violet)"></i>Total tasks</span><strong id="total-count">0</strong></div>
+                <div class="count-row"><span><i style="background:var(--green)"></i>Completed</span><strong id="completed-count">0</strong></div>
+                <div class="count-row"><span><i style="background:var(--amber)"></i>Pending</span><strong id="pending-count">0</strong></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card planner-main reveal" style="--i:1">
+          <div class="planner-toolbar">
+            <h3 style="margin:0">My tasks</h3>
+            <div class="segmented" role="group" aria-label="Filter tasks">
+              <button type="button" data-task-filter="all" aria-pressed="true">All</button>
+              <button type="button" data-task-filter="pending" aria-pressed="false">Pending</button>
+              <button type="button" data-task-filter="completed" aria-pressed="false">Completed</button>
+            </div>
+            <button class="btn btn-ghost btn-sm" type="button" id="clear-completed" disabled><i data-icon="trash"></i>Clear completed</button>
+          </div>
+          <ul class="task-list" id="task-list" aria-label="Task list"></ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <a class="brand" href="index.html" aria-label="Aso Emmanuella, home">
+          <span class="brand-mark" aria-hidden="true">AE</span>
+          <span>Aso Emmanuella</span>
+        </a>
+        <p style="margin-top:1rem;max-width:340px">Computer Science student at MIVA Open University, interested in software and game development.</p>
+      </div>
+      <nav aria-label="Footer navigation">
+        <h2>Explore</h2>
+        <div class="footer-links">
+          <a href="index.html"><i data-icon="home"></i>Home</a>
+          <a href="about.html"><i data-icon="user"></i>About</a>
+          <a href="projects.html"><i data-icon="briefcase"></i>Projects</a>
+          <a href="planner.html"><i data-icon="tasks"></i>Planner</a>
+        </div>
+      </nav>
+      <div>
+        <h2>Connect</h2>
+        <div class="footer-links">
+          <a href="contact.html"><i data-icon="mail"></i>Contact form</a>
+          <a href="https://github.com/asoemmanuella2-max" target="_blank" rel="noopener noreferrer"><i data-icon="github"></i>GitHub</a>
+        </div>
+      </div>
+    </div>
+    <div class="container copyright">
+      <p>&copy; 2025 MIVA Open University. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <button class="icon-btn to-top" type="button" aria-label="Back to top"><i data-icon="arrow-up"></i></button>
+</body>
+</html>

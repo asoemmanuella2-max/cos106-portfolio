@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aso Emmanuella | Student Portfolio</title>
+  <meta name="description" content="Portfolio of Aso Emmanuella, a Computer Science student at MIVA Open University interested in software and game development.">
+  <meta name="theme-color" content="#0a0c1b">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap">
+  <link rel="stylesheet" href="style.css">
+  <script>
+    /* Runs before first paint so the saved theme never flashes. */
+    document.documentElement.classList.add("js");
+    try {
+      var saved = localStorage.getItem("theme");
+      var theme = saved ? JSON.parse(saved) : (matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark");
+      document.documentElement.dataset.theme = theme;
+    } catch (e) { document.documentElement.dataset.theme = "dark"; }
+  </script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <div class="scroll-progress" aria-hidden="true"></div>
+  <div class="bg-grid" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <div class="container nav-inner">
+      <a class="brand" href="index.html" aria-label="Aso Emmanuella, home">
+        <span class="brand-mark" aria-hidden="true">AE</span>
+        <span>Aso Emmanuella</span>
+      </a>
+
+      <nav class="nav-links" id="site-nav" aria-label="Main navigation">
+        <a href="index.html" aria-current="page"><i data-icon="home"></i>Home</a>
+        <a href="about.html"><i data-icon="user"></i>About</a>
+        <a href="projects.html"><i data-icon="briefcase"></i>Projects</a>
+        <a href="planner.html"><i data-icon="tasks"></i>Planner</a>
+        <a href="contact.html"><i data-icon="mail"></i>Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="icon-btn theme-toggle" type="button" aria-label="Switch theme">
+          <i data-icon="sun" class="icon-sun"></i><i data-icon="moon" class="icon-moon"></i>
+        </button>
+        <button class="icon-btn menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+          <span class="bars" aria-hidden="true"><span></span><span></span><span></span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- Hero: name, photograph, welcome message, brief biography -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container hero-grid">
+        <div>
+          <p class="eyebrow reveal"><span class="dot"></span>Welcome to my portfolio</p>
+          <h1 id="hero-title" class="reveal" style="--i:1">Hi, I&rsquo;m <span class="grad-text">Aso Emmanuella</span></h1>
+          <p class="role-line reveal" style="--i:2" aria-hidden="true">
+            <span>Aspiring</span><span class="typed" data-typed="Software Developer|Game Developer|Computer Science Student">Software Developer</span><span class="caret"></span>
+          </p>
+          <p class="lead reveal" style="--i:3">
+            I am studying Computer Science at MIVA Open University, and I am interested in software and game development.
+          </p>
+          <p class="lead reveal" style="--i:3">
+            This website introduces me, showcases my projects, and helps me plan academic tasks.
+          </p>
+          <div class="hero-cta reveal" style="--i:4">
+            <a class="btn btn-primary" href="projects.html">View my projects <i data-icon="arrow-right" class="icon-arrow"></i></a>
+            <a class="btn btn-ghost" href="contact.html"><i data-icon="mail"></i>Get in touch</a>
+          </div>
+          <dl class="stats reveal" style="--i:5">
+            <div class="stat"><dt class="sr-only">Projects built</dt><dd style="margin:0"><strong data-count="3">0</strong><span>Projects built</span></dd></div>
+            <div class="stat"><dt class="sr-only">Languages being learned</dt><dd style="margin:0"><strong data-count="3">0</strong><span>Languages I&rsquo;m learning</span></dd></div>
+            <div class="stat"><dt class="sr-only">Degree programme</dt><dd style="margin:0"><strong data-count="1">0</strong><span>Degree in progress</span></dd></div>
+          </dl>
+        </div>
+
+        <div class="portrait-wrap reveal reveal-scale" style="--i:2">
+          <div class="portrait-ring" aria-hidden="true"></div>
+          <figure class="portrait" style="margin:0">
+            <img src="assets/images/profile.jpg" alt="Portrait of Aso Emmanuella" width="420" height="525" fetchpriority="high">
+          </figure>
+          <div class="float-chip c1" aria-hidden="true"><span class="tile t-violet"><i data-icon="code"></i></span>Software</div>
+          <div class="float-chip c2" aria-hidden="true"><span class="tile t-pink"><i data-icon="gamepad"></i></span>Games</div>
+        </div>
+      </div>
+    </section>
+
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track"><span><i data-icon="code"></i>HTML5</span><span><i data-icon="palette"></i>CSS3</span><span><i data-icon="zap"></i>JavaScript</span><span><i data-icon="layers"></i>Software development</span><span><i data-icon="gamepad"></i>Game development</span><span><i data-icon="phone2"></i>Responsive design</span><span><i data-icon="cap"></i>Computer Science</span><span><i data-icon="code"></i>HTML5</span><span><i data-icon="palette"></i>CSS3</span><span><i data-icon="zap"></i>JavaScript</span><span><i data-icon="layers"></i>Software development</span><span><i data-icon="gamepad"></i>Game development</span><span><i data-icon="phone2"></i>Responsive design</span><span><i data-icon="cap"></i>Computer Science</span><span><i data-icon="code"></i>HTML5</span><span><i data-icon="palette"></i>CSS3</span><span><i data-icon="zap"></i>JavaScript</span><span><i data-icon="layers"></i>Software development</span><span><i data-icon="gamepad"></i>Game development</span><span><i data-icon="phone2"></i>Responsive design</span><span><i data-icon="cap"></i>Computer Science</span><span><i data-icon="code"></i>HTML5</span><span><i data-icon="palette"></i>CSS3</span><span><i data-icon="zap"></i>JavaScript</span><span><i data-icon="layers"></i>Software development</span><span><i data-icon="gamepad"></i>Game development</span><span><i data-icon="phone2"></i>Responsive design</span><span><i data-icon="cap"></i>Computer Science</span></div>
+    </div>
+
+    <!-- Brief biography -->
+    <section class="section" aria-labelledby="bio-title">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow"><i data-icon="user"></i>Brief biography</p>
+          <h2 id="bio-title">A student who learns by <span class="grad-text">building</span></h2>
+          <p>I practise what I study by creating real projects, from planners to registration forms to storefront layouts.</p>
+        </div>
+        <div class="grid-3">
+          <article class="card reveal" style="--i:0">
+            <span class="tile t-violet"><i data-icon="cap"></i></span>
+            <h3>Computer Science student</h3>
+            <p>Studying at MIVA Open University and building a strong foundation in computing.</p>
+          </article>
+          <article class="card reveal" style="--i:1">
+            <span class="tile t-pink"><i data-icon="gamepad"></i></span>
+            <h3>Software &amp; game development</h3>
+            <p>Interested in creating software and games that people enjoy using.</p>
+          </article>
+          <article class="card reveal" style="--i:2">
+            <span class="tile t-cyan"><i data-icon="rocket"></i></span>
+            <h3>Always learning</h3>
+            <p>Currently learning HTML, CSS and JavaScript and applying them in every project.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Multimedia: audio introduction -->
+    <section class="section" style="padding-top:0" aria-labelledby="audio-heading">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow"><i data-icon="mic"></i>Audio</p>
+          <h2 id="audio-heading">Listen to my introduction</h2>
+          <p>A short audio introduction about me and my interests.</p>
+        </div>
+
+        <div class="card audio-card reveal" data-audio-player hidden>
+          <button class="play-btn" type="button" aria-label="Play introduction">
+            <i data-icon="play" class="icon-play"></i><i data-icon="pause" class="icon-pause"></i>
+          </button>
+          <div class="audio-body">
+            <h3>Hello, I&rsquo;m Emmanuella</h3>
+            <p>About me and my interests <span class="audio-status" role="status"></span></p>
+            <div class="wave" aria-hidden="true"></div>
+            <div class="seek-row">
+              <span class="t-current">0:00</span>
+              <input class="seek" type="range" min="0" max="1000" value="0" step="1" aria-label="Seek through the introduction">
+              <span class="t-total">0:00</span>
+            </div>
+          </div>
+        </div>
+        <!-- Native player: used as the fallback and replaced by the styled player when JavaScript runs -->
+        <audio id="intro-audio" controls preload="metadata" style="width:100%">
+          <source src="media/recording.mp3" type="audio/mpeg">
+          Your browser does not support the audio element.
+        </audio>
+      </div>
+    </section>
+
+    <!-- Featured projects -->
+    <section class="section" style="padding-top:0" aria-labelledby="featured-title">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow"><i data-icon="briefcase"></i>Featured work</p>
+          <h2 id="featured-title">Projects I&rsquo;ve built</h2>
+        </div>
+        <div class="projects-grid">
+        <a class="card project-card reveal" style="--i:0;text-decoration:none;color:inherit" href="projects.html" aria-label="Academic Task Manager, view on projects page">
+          <div class="browser">
+            <div class="browser-bar" aria-hidden="true"><span></span><span></span><span></span></div>
+            <div class="browser-shot"><img src="assets/images/project-task-manager.jpg" alt="" width="1341" height="642" loading="lazy"></div>
+          </div>
+          <div class="project-body">
+            <h3 style="margin-top:0">Academic Task Manager</h3>
+            <p style="margin:0">HTML · CSS · JavaScript</p>
+          </div>
+        </a>
+        <a class="card project-card reveal" style="--i:1;text-decoration:none;color:inherit" href="projects.html" aria-label="Student Registration System, view on projects page">
+          <div class="browser">
+            <div class="browser-bar" aria-hidden="true"><span></span><span></span><span></span></div>
+            <div class="browser-shot"><img src="assets/images/project-registration.jpg" alt="" width="1341" height="642" loading="lazy"></div>
+          </div>
+          <div class="project-body">
+            <h3 style="margin-top:0">Student Registration System</h3>
+            <p style="margin:0">HTML · CSS · Forms</p>
+          </div>
+        </a>
+        <a class="card project-card reveal" style="--i:2;text-decoration:none;color:inherit" href="projects.html" aria-label="ELLA TECH | Smart Technology, view on projects page">
+          <div class="browser">
+            <div class="browser-bar" aria-hidden="true"><span></span><span></span><span></span></div>
+            <div class="browser-shot"><img src="assets/images/project-ella-tech.jpg" alt="" width="1341" height="642" loading="lazy"></div>
+          </div>
+          <div class="project-body">
+            <h3 style="margin-top:0">ELLA TECH | Smart Technology</h3>
+            <p style="margin:0">HTML · CSS · UI design</p>
+          </div>
+        </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top:0">
+      <div class="container">
+        <div class="cta-band reveal reveal-scale">
+          <h2>Let&rsquo;s build something together</h2>
+          <p>Have a question, an idea or a project in mind? I&rsquo;d love to hear from you.</p>
+          <div class="hero-cta">
+            <a class="btn btn-primary" href="contact.html">Contact me <i data-icon="arrow-right" class="icon-arrow"></i></a>
+            <a class="btn btn-ghost" href="planner.html"><i data-icon="tasks"></i>Try the planner</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <a class="brand" href="index.html" aria-label="Aso Emmanuella, home">
+          <span class="brand-mark" aria-hidden="true">AE</span>
+          <span>Aso Emmanuella</span>
+        </a>
+        <p style="margin-top:1rem;max-width:340px">Computer Science student at MIVA Open University, interested in software and game development.</p>
+      </div>
+      <nav aria-label="Footer navigation">
+        <h2>Explore</h2>
+        <div class="footer-links">
+          <a href="index.html"><i data-icon="home"></i>Home</a>
+          <a href="about.html"><i data-icon="user"></i>About</a>
+          <a href="projects.html"><i data-icon="briefcase"></i>Projects</a>
+          <a href="planner.html"><i data-icon="tasks"></i>Planner</a>
+        </div>
+      </nav>
+      <div>
+        <h2>Connect</h2>
+        <div class="footer-links">
+          <a href="contact.html"><i data-icon="mail"></i>Contact form</a>
+          <a href="https://github.com/asoemmanuella2-max" target="_blank" rel="noopener noreferrer"><i data-icon="github"></i>GitHub</a>
+        </div>
+      </div>
+    </div>
+    <div class="container copyright">
+      <p>&copy; 2025 MIVA Open University. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <button class="icon-btn to-top" type="button" aria-label="Back to top"><i data-icon="arrow-up"></i></button>
+</body>
+</html>
